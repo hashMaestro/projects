@@ -1,4 +1,5 @@
 # md-translator-cli
+[Deutsch](./README.de.md) | [English](./README.md) 
 
 Minimal CLI to translate a Markdown file to another language using OpenAI while preserving the exact Markdown structure. Code blocks and inline code are left unchanged. Output contains only the translated Markdown.
 
@@ -26,4 +27,5 @@ translate-md -i input.md -o output.md -l de
 - The tool segments large files into chunks without splitting fenced code blocks, then merges translated chunks.
 - The prompt strictly enforces: keep Markdown structure, do not alter code blocks or inline code, and return only translated Markdown.
 - The system prompt can be edited in the src/translate_md/cli.py file
+
 
