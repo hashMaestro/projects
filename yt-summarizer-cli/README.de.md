@@ -1,5 +1,5 @@
-<markdown>
 # YouTube Zusammenfasser
+[Deutsch](./README.de.md) | [English](./README.md) 
 
 Ein CLI-Tool, das Transkripte aus YouTube-Videos extrahiert und ein LLM verwendet, um wichtige Erkenntnisse klar und genau zusammenzufassen.
 
