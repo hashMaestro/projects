@@ -25,4 +25,5 @@ translate-md -i input.md -o output.md -l de
 ## Notes
 - The tool segments large files into chunks without splitting fenced code blocks, then merges translated chunks.
 - The prompt strictly enforces: keep Markdown structure, do not alter code blocks or inline code, and return only translated Markdown.
+- The system prompt can be edited in the src/translate_md/cli.py file
 
