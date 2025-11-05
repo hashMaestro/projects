@@ -1,4 +1,5 @@
 # YouTube Summarizer
+[Deutsch](./README.de.md) | [English](./README.md) 
 
 A CLI tool that extracts transcripts from YouTube videos and uses an LLM to summarize key insights clearly and accurately.
 
@@ -195,5 +196,6 @@ This project is provided as-is for educational and personal use.
 ## Contributing
 
 This project began as a small late-evening idea and was quickly assembled with the help of Cursor. It is not intended to become a maintained or actively developed tool. For that reason, contributions are not accepted. Feel free to fork the repository if you want to build on it.
+
 
 
