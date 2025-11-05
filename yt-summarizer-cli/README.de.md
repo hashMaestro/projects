@@ -196,4 +196,5 @@ Dieses Projekt wird wie es ist für Bildungs- und persönliche Zwecke bereitgest
 ## Mitwirken
 
 Dieses Projekt begann als kleine Idee am späten Abend und wurde schnell mit Hilfe von Cursor zusammengestellt. Es ist nicht beabsichtigt, ein gewartetes oder aktiv entwickeltes Tool zu werden. Aus diesem Grund werden keine Beiträge akzeptiert. Fühle dich frei, das Repository zu forken, wenn du darauf aufbauen möchtest.
-</markdown>
+<br><br>
+<sub>Translated with: [md-translator-cli](https://github.com/hashMaestro/md-translator-cli)</sub>
