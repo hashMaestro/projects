@@ -22,7 +22,7 @@ A CLI tool that extracts transcripts from YouTube videos and uses an LLM to summ
 
 1. Clone or download this repository:
    ```bash
-   cd warfeeds
+   cd yt-summarizer-cli
    ```
 
 2. Install dependencies:
@@ -44,10 +44,6 @@ A CLI tool that extracts transcripts from YouTube videos and uses an LLM to summ
 
    Or add it to your shell profile (`~/.bashrc`, `~/.zshrc`, etc.) for persistence.
 
-4. (Optional) Install the package in development mode:
-   ```bash
-   pip install -e .
-   ```
 
 ## Usage
 
@@ -110,6 +106,9 @@ The summary includes:
    - Certainty level (high/medium/low)
 4. **Uncertainties**: Any unclear or speculative points mentioned
 
+Example:
+<img width="1182" height="925" alt="image" src="https://github.com/user-attachments/assets/4414b594-b3ed-401a-9239-9ca74eab4f25" />
+
 ## Error Handling
 
 The tool handles various error scenarios:
@@ -139,7 +138,7 @@ python -m pytest tests/test_formatter.py
 ## Project Structure
 
 ```
-warfeeds/
+yt-summarizer-cli/
 ├── youtube_summarizer/
 │   ├── __init__.py          # Package initialization
 │   ├── cli.py               # CLI entry point
@@ -195,9 +194,6 @@ This project is provided as-is for educational and personal use.
 
 ## Contributing
 
-Contributions are welcome! Please ensure:
-- Code follows PEP 8 style guidelines
-- Tests are included for new features
-- Error handling is comprehensive
-- Documentation is updated
+This project began as a small late-evening idea and was quickly assembled with the help of Cursor. It is not intended to become a maintained or actively developed tool. For that reason, contributions are not accepted. Feel free to fork the repository if you want to build on it.
+
 
