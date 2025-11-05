@@ -1,0 +1,20 @@
+[project]
+name = "md-translator-cli"
+version = "0.1.0"
+description = "Minimal CLI to translate Markdown files via OpenAI while preserving formatting"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "md-translator-cli" }]
+dependencies = [
+  "openai>=1.50.0,<2.0.0"
+]
+
+[project.scripts]
+translate-md = "translate_md.cli:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+

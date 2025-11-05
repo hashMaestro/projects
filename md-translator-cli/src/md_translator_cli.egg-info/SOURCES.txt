@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/md_translator_cli.egg-info/PKG-INFO
+src/md_translator_cli.egg-info/SOURCES.txt
+src/md_translator_cli.egg-info/dependency_links.txt
+src/md_translator_cli.egg-info/entry_points.txt
+src/md_translator_cli.egg-info/requires.txt
+src/md_translator_cli.egg-info/top_level.txt
+src/translate_md/__init__.py
+src/translate_md/cli.py
