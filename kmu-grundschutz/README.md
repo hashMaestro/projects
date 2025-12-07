@@ -1,5 +1,8 @@
 # KMU-Grundschutz: AI-gestützter Grundschutz-Assistent für KMUs (PoC)
 
+<img width="1855" height="1053" alt="image" src="https://github.com/user-attachments/assets/ffd96f21-7b92-4344-b4d9-f065948b14a8" />
+
+
 ## Status: Proof of Concept (PoC) & Archiviert
 
 Dieses Projekt wurde als spontanes **Nebenprojekt** begonnen, um die Machbarkeit eines KI-gestützten Tools zur Vereinfachung des BSI-Grundschutzes für kleine und mittlere Unternehmen (KMUs) zu testen.
@@ -45,7 +48,7 @@ Dieses Feature verknüpft die statischen Grundschutz-Maßnahmen mit der aktuelle
 
 Der Prototyp wurde mit Fokus auf gängige, moderne Web-Technologien entwickelt.
 
-`Python` - `Next.js` - `Typescript` - `Postgres` - `Docker`
+`Python` - `Next.js` - `Typescript` - `Postgres` - `Docker` - `Redis`
 
 ***
 
@@ -55,16 +58,57 @@ Der Prototyp wurde mit Fokus auf gängige, moderne Web-Technologien entwickelt.
 2. Docker starten:
 
    ```bash
-   docker compose up --build
+   ~/kmu-grundschutz/infra/docker$ sudo docker compose -f docker-compose.dev.yml up -d
    ```
 
-3. Pipeline manuell starten (alternativ via Scheduler im Container):
+3. Webserver starten:
 
    ```bash
-   docker compose exec backend python -m kmu_digest.pipeline
+   npm run dev
    ```
 
-Konfiguration
+### Konfiguration
 
 - Siehe `backend/kmu_digest/config.py` und `.env.example`.
 - Kritische Variablen: Datenquellen, OpenAI/LLM-Keys (optional), DB-URL, Exportpfade.
+
+## Screenshots
+<br>
+
+### Dashboard
+
+<img width="1855" height="1053" alt="image" src="https://github.com/user-attachments/assets/ffd96f21-7b92-4344-b4d9-f065948b14a8" />
+
+---
+
+### Controls (Standardisierte Sicherheitsmaßnahmen)
+<img width="1855" height="1053" alt="image" src="https://github.com/user-attachments/assets/b861720f-d8b7-41d6-a9df-2df2c8922abd" />
+
+---
+
+#### Wizard
+<img width="1855" height="1053" alt="image" src="https://github.com/user-attachments/assets/36d6e005-19b1-46aa-b942-f40cc1a01f58" />
+
+---
+#### Threats (Newsfeeds)
+
+<img width="1855" height="1053" alt="image" src="https://github.com/user-attachments/assets/07f39066-68cf-42d8-aee8-6c1a386eb46c" />
+
+---
+#### Darknet Monitoring (Leaked Credentials)
+
+<img width="1855" height="1053" alt="image" src="https://github.com/user-attachments/assets/b0b2e757-b83a-4595-a996-4e082d7d830d" />
+
+--- 
+
+### Compliance-Reports und Nachweise
+
+<img width="1855" height="1053" alt="image" src="https://github.com/user-attachments/assets/0f9a2cfc-0647-4c30-9ddb-e56cf144fada" />
+
+---
+
+### Settings
+<img width="1855" height="1053" alt="image" src="https://github.com/user-attachments/assets/d9555b97-09c6-485b-8d72-c6ad44c6bcb6" />
+
+
+
