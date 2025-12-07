@@ -1,0 +1,94 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: kmu-grundschutz-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: kmu_grundschutz
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+  web:
+    build:
+      context: ../..
+      dockerfile: infra/docker/Dockerfile
+    container_name: kmu-grundschutz-web
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/kmu_grundschutz?schema=public
+      AUTH_SECRET: ${AUTH_SECRET:-change-me-in-production}
+      AUTH_URL: http://localhost:3000
+      NODE_ENV: development
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ../../apps/web:/app/apps/web
+      - /app/apps/web/node_modules
+      - /app/apps/web/.next
+    networks:
+      - app-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: kmu-grundschutz-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+  traefik:
+    image: traefik:v3.0
+    container_name: kmu-grundschutz-traefik
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      # Let's Encrypt configuration (stub - uncomment and configure for production)
+      # - "--certificatesresolvers.letsencrypt.acme.tlschallenge=true"
+      # - "--certificatesresolvers.letsencrypt.acme.email=your-email@example.com"
+      # - "--certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080" # Traefik dashboard
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      # - ./letsencrypt:/letsencrypt
+    networks:
+      - app-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.localhost`)"
+      - "traefik.http.routers.traefik.entrypoints=web"
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  app-network:
+    driver: bridge
+
